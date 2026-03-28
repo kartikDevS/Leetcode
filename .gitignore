@@ -1,0 +1,8 @@
+# Ignore all executable files
+*.exe
+
+# Optional: Ignore other common compiled/temp files
+*.o
+*.obj
+*.out
+.DS_Store
