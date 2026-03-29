@@ -1,0 +1,44 @@
+int cmp(const void*a,const void*b){
+    return *(int*)a-*(int*)b;
+}
+int** fourSum(int* nums, int numsSize, int target, int* returnSize, int** returnColumnSizes) {
+
+    qsort(nums,numsSize,sizeof(int),cmp);
+    int capacity=numsSize*numsSize;
+    int **result=malloc(capacity*sizeof(int*));
+    *returnColumnSizes=malloc(capacity*sizeof(int));
+    *returnSize=0;
+
+    if(numsSize<4)return result;
+
+    for(int i=0;i<numsSize;i++){
+        if(i>0 && nums[i]==nums[i-1])continue;
+        for(int j=i+1;j<numsSize;j++){
+            int left=j+1,right=numsSize-1;
+            if(j>i+1 && nums[j]==nums[j-1])continue;
+            while(left<right){
+                long sum=(long)nums[i]+nums[j]+nums[left]+nums[right];
+                if(sum==target){
+                    result[*returnSize]=malloc(4*sizeof(int));
+                    result[*returnSize][0]=nums[i];
+                    result[*returnSize][1]=nums[j];
+                    result[*returnSize][2]=nums[left];
+                    result[*returnSize][3]=nums[right];
+                    (*returnColumnSizes)[*returnSize]=4;
+                    (*returnSize)++;
+                    while(left<right && nums[left]==nums[left+1])left++;
+                    while(left<right && nums[right]==nums[right-1])right--;
+                    left++;
+                    right--;
+                }
+                else if(sum<target){
+                    left++;
+                }
+                else{
+                    right--;
+                }
+            }
+        }
+    }
+    return result;
+}
