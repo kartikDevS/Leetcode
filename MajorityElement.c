@@ -1,3 +1,5 @@
+//find the element which is more than n/2 times
+
 int majorityElement(int* nums, int numsSize) {
     int candidate=nums[0];int count=1;
     for(int i=1;i<numsSize;i++){

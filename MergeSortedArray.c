@@ -1,3 +1,6 @@
+//merge two sorted array without using any extra space , (here array 1 was of size 
+//nums1Size+nums2Size and till nums1Size it was elements rest was filled with 0)
+
 void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
     int p1=m-1;int p2=n-1;int idx=n+m-1;
     while(p1>=0 && p2>=0){
