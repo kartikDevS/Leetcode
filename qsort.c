@@ -4,5 +4,5 @@ int compare(const void*a,const void*b){   //a and b are void pointers i.e void m
     return a-b; // if a-b <0 then it means a should come before b so if u want in descending order do return b-a
 }
 
-qsort(nums,numsSize,sizeof(int),compare);
+qsort(nums,numsSize,sizeof(int),compare); 
 
