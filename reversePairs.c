@@ -55,4 +55,4 @@ int reversePairs(int* nums, int numsSize) {
     long long totalPairs= mergesort(nums,0,numsSize-1,temp);
     free(temp);
     return (int)totalPairs;
-}
+} 
